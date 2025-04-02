@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCMs - Learning Platform</title>
+  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   
+            <!-- Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-tab="available">Available QCMs</button>
+                <button class="filter-tab" data-tab="completed">Completed QCMs</button>
+            </div>
+
+            <!-- Available QCMs -->
+            <div class="tab-content active" id="available">
+                <div class="qcm-grid">
+                    <div class="qcm-card">
+                        <div class="qcm-header">
+                            <div class="qcm-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="qcm-badge beginner">Beginner</div>
+                        </div>
+                        <div class="qcm-content">
+                            <h3>JavaScript Basics</h3>
+                            <p>Test your knowledge of JavaScript fundamentals</p>
+                            <div class="qcm-meta">
+                                <span><i class="fas fa-book"></i> Web Development</span>
+                                <span><i class="fas fa-question-circle"></i> 10 questions</span>
+                                <span><i class="fas fa-clock"></i> 20 min</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Start QCM</a>
+                        </div>
+                    </div>
+                    
+                    <div class="qcm-card">
+                        <div class="qcm-header">
+                            <div class="qcm-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="qcm-badge intermediate">Intermediate</div>
+                        </div>
+                        <div class="qcm-content">
+                            <h3>React Fundamentals</h3>
+                            <p>Test your knowledge of React components and hooks</p>
+                            <div class="qcm-meta">
+                                <span><i class="fas fa-book"></i> Web Development</span>
+                                <span><i class="fas fa-question-circle"></i> 15 questions</span>
+                                <span><i class="fas fa-clock"></i> 30 min</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Start QCM</a>
+                        </div>
+                    </div>
+                    
+                    <div class="qcm-card">
+                        <div class="qcm-header">
+                            <div class="qcm-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="qcm-badge intermediate">Intermediate</div>
+                        </div>
+                        <div class="qcm-content">
+                            <h3>Database Design</h3>
+                            <p>Test your knowledge of database modeling and SQL</p>
+                            <div class="qcm-meta">
+                                <span><i class="fas fa-book"></i> Database Management</span>
+                                <span><i class="fas fa-question-circle"></i> 12 questions</span>
+                                <span><i class="fas fa-clock"></i> 25 min</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Start QCM</a>
+                        </div>
+                    </div>
+                    
+                    <div class="qcm-card">
+                        <div class="qcm-header">
+                            <div class="qcm-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="qcm-badge advanced">Advanced</div>
+                        </div>
+                        <div class="qcm-content">
+                            <h3>Network Security</h3>
+                            <p>Test your knowledge of security protocols and threats</p>
+                            <div class="qcm-meta">
+                                <span><i class="fas fa-book"></i> Cybersecurity</span>
+                                <span><i class="fas fa-question-circle"></i> 20 questions</span>
+                                <span><i class="fas fa-clock"></i> 40 min</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Start QCM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed QCMs -->
+            <div class="tab-content" id="completed">
+                <div class="card">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>QCM</th>
+                                    <th>Course</th>
+                                    <th>Date</th>
+                                    <th>Score</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>JavaScript Basics Quiz</td>
+                                    <td>Web Development</td>
+                                    <td>Mar 15, 2023</td>
+                                    <td>85%</td>
+                                    <td><span class="status passed">Passed</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HTML Fundamentals Quiz</td>
+                                    <td>Web Development</td>
+                                    <td>Mar 10, 2023</td>
+                                    <td>92%</td>
+                                    <td><span class="status passed">Passed</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CSS Styling Quiz</td>
+                                    <td>Web Development</td>
+                                    <td>Mar 5, 2023</td>
+                                    <td>78%</td>
+                                    <td><span class="status passed">Passed</span></td>
+                                    <td class="actions">
+                                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+     
+
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current button and content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

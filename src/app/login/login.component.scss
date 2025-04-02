@@ -1,0 +1,94 @@
+$theme-signup: #03A9F4;
+$theme-signup-darken: #0288D1;
+$theme-signup-background: #2C3034;
+$theme-login: #673AB7;
+$theme-login-darken: #512DA8;
+$theme-login-background: #f9f9f9;
+$theme-dark: #212121;
+$theme-light: #e3e3e3;
+$font-default: 'Roboto', sans-serif;
+
+$success: #5cb85c;
+$error: #d9534f;
+
+
+
+.card {
+  margin-left: 35%;
+  width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 2em;
+}
+
+.card h2 {
+  font-size: 2.6em;
+  font-weight: 300;
+  margin: 0.2em 0 0.1em;
+  color: $theme-login;
+  text-align: center;
+}
+
+.card .form-element {
+  margin: 1.6em 0;
+}
+
+.card .form-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.card label {
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.card input {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  padding: 8px 1px;
+  margin-top: 0.1em;
+  border-bottom: 1px solid $theme-login;
+  color: $theme-dark;
+}
+
+.card input:focus, .card input:active {
+  border-color: $theme-login;
+  color: $theme-login;
+}
+
+.card .form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.card button {
+  padding: 0.8em 1.2em;
+  margin: 1em 0 0;
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1em;
+  color: #fff;
+  background: $theme-login;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+}
+
+.card button:focus, .card button:active, .card button:hover {
+  background: $theme-login-darken;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: 1.5em;
+  }
+}

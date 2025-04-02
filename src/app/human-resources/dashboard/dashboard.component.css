@@ -1,0 +1,44 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 12px;
+    color: #666;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #4b5563;
+}
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 24px;
+}
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM Management - Learning Platform</title>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   
+
+            <!-- Add QCM Form -->
+            <div class="card">
+                <h2>Add New QCM</h2>
+                <form class="form-horizontal">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="qcm-title">QCM Title</label>
+                            <input type="text" id="qcm-title" name="qcm-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select Course</option>
+                                <option value="1">Web Development</option>
+                                <option value="2">Database Management</option>
+                                <option value="3">Network Security</option>
+                                <option value="4">Mobile App Development</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="time-limit">Time Limit (minutes)</label>
+                            <input type="number" id="time-limit" name="time-limit" min="5" max="180" value="30">
+                        </div>
+                        <div class="form-group">
+                            <label for="passing-score">Passing Score (%)</label>
+                            <input type="number" id="passing-score" name="passing-score" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    
+                    <h3>Questions</h3>
+                    <div id="questions-container">
+                        <div class="question-card">
+                            <div class="question-header">
+                                <h4>Question 1</h4>
+                                <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="form-group">
+                                <label for="question-1">Question Text</label>
+                                <textarea id="question-1" name="questions[0][text]" rows="2" required></textarea>
+                            </div>
+                            <div class="options-container">
+                                <div class="option-row">
+                                    <input type="radio" name="questions[0][correct]" value="0" id="q1-option1-correct" checked>
+                                    <input type="text" name="questions[0][options][]" placeholder="Option 1" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[0][correct]" value="1" id="q1-option2-correct">
+                                    <input type="text" name="questions[0][options][]" placeholder="Option 2" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[0][correct]" value="2" id="q1-option3-correct">
+                                    <input type="text" name="questions[0][options][]" placeholder="Option 3" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[0][correct]" value="3" id="q1-option4-correct">
+                                    <input type="text" name="questions[0][options][]" placeholder="Option 4" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" id="add-question" class="btn btn-secondary">
+                            <i class="fas fa-plus"></i> Add Question
+                        </button>
+                        <button type="submit" class="btn btn-primary">Save QCM</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- QCM List Table -->
+            <div class="card">
+                <h2>QCM List</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Course</th>
+                                <th>Questions</th>
+                                <th>Time Limit</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>JavaScript Basics</td>
+                                <td>Web Development</td>
+                                <td>10</td>
+                                <td>20 min</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>HTML Fundamentals</td>
+                                <td>Web Development</td>
+                                <td>15</td>
+                                <td>30 min</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Database Design</td>
+                                <td>Database Management</td>
+                                <td>12</td>
+                                <td>25 min</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Network Security</td>
+                                <td>Network Security</td>
+                                <td>20</td>
+                                <td>40 min</td>
+                                <td class="actions">
+                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+
+            <script>
+                // Simple JavaScript to add more questions
+                document.addEventListener('DOMContentLoaded', function() {
+                    const addQuestionBtn = document.getElementById('add-question');
+                    const questionsContainer = document.getElementById('questions-container');
+                    let questionCount = 1;
+                    
+                    addQuestionBtn.addEventListener('click', function() {
+                        questionCount++;
+                        const newQuestion = document.createElement('div');
+                        newQuestion.className = 'question-card';
+                        newQuestion.innerHTML = `
+                            <div class="question-header">
+                                <h4>Question ${questionCount}</h4>
+                                <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="form-group">
+                                <label for="question-${questionCount}">Question Text</label>
+                                <textarea id="question-${questionCount}" name="questions[${questionCount-1}][text]" rows="2" required></textarea>
+                            </div>
+                            <div class="options-container">
+                                <div class="option-row">
+                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="0" id="q${questionCount}-option1-correct" checked>
+                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 1" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="1" id="q${questionCount}-option2-correct">
+                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 2" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="2" id="q${questionCount}-option3-correct">
+                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 3" required>
+                                </div>
+                                <div class="option-row">
+                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="3" id="q${questionCount}-option4-correct">
+                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 4" required>
+                                </div>
+                            </div>
+                        `;
+                        questionsContainer.appendChild(newQuestion);
+                        
+                        // Add event listener to delete button
+                        const deleteBtn = newQuestion.querySelector('.delete-btn');
+                        deleteBtn.addEventListener('click', function() {
+                            newQuestion.remove();
+                        });
+                    });
+                    
+                    // Add event listener to existing delete button
+                    const deleteBtn = document.querySelector('.delete-btn');
+                    deleteBtn.addEventListener('click', function(e) {
+                        if (questionCount > 1) {
+                            e.target.closest('.question-card').remove();
+                            questionCount--;
+                        }
+                    });
+                });
+            </script>
+</body>
+</html>

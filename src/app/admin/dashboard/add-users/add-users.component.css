@@ -1,0 +1,108 @@
+/* Admin Users Page Specific Styles */
+
+/* User Form Styles */
+.user-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.user-form h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.role-select {
+    margin-bottom: 16px;
+}
+
+.role-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.role-option input[type="radio"] {
+    margin-right: 8px;
+}
+
+.role-option label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* User List Styles */
+.user-list {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+}
+
+.user-list h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.user-role {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.role-admin {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.role-hr {
+    background-color: #fef3c7;
+    color: #f59e0b;
+}
+
+.role-user {
+    background-color: #dbeafe;
+    color: #3b82f6;
+}
+
+.user-status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.status-active {
+    background-color: #10b981;
+}
+
+.status-inactive {
+    background-color: #6b7280;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+}

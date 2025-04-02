@@ -1,0 +1,168 @@
+/* Admin QCMs Page Specific Styles */
+
+/* QCM Form Styles */
+.qcm-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.qcm-form h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.question-list {
+    margin-top: 24px;
+}
+
+.question-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #f9fafb;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.question-header h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.question-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.question-content textarea {
+    margin-bottom: 16px;
+}
+
+.options-container {
+    margin-top: 16px;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.option-row input[type="radio"] {
+    margin-right: 12px;
+}
+
+.option-row input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-option-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 8px;
+}
+
+.add-question-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background-color: #f3f4f6;
+    border: 1px dashed #d1d5db;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.add-question-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* QCM List Styles */
+.qcm-list {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+}
+
+.qcm-list h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.qcm-difficulty {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.difficulty-beginner {
+    background-color: #d1fae5;
+    color: #10b981;
+}
+
+.difficulty-intermediate {
+    background-color: #fef3c7;
+    color: #f59e0b;
+}
+
+.difficulty-advanced {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

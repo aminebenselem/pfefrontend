@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from "./admin/sidebar/sidebar.component";
+import { DashboardComponent } from "./admin/dashboard/dashboard.component";
 
 @Component({
   selector: 'app-root',
