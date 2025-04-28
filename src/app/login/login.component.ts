@@ -20,9 +20,9 @@ response:any
 constructor(private router:Router,private loginservice:LoginService ){}
 
   ngOnInit(): void {
-    if(localStorage.getItem('role')=='user'){this.router.navigate(['user'])}
-    else if(localStorage.getItem('role')=='admin'){this.router.navigate(['admin'])}
-    else if(localStorage.getItem('role')=='hr'){this.router.navigate(['hr'])}
+    if(localStorage.getItem('role')=='ROLE_USER'){this.router.navigate(['user'])}
+    else if(localStorage.getItem('role')=='ROLE_ADMIN'){this.router.navigate(['admin'])}
+    else if(localStorage.getItem('role')=='ROLE_HR'){this.router.navigate(['hr'])}
     else{this.router.navigate(['login'])}
   }
 
@@ -37,9 +37,10 @@ localStorage.setItem('token',this.response.token);localStorage.setItem('username
 error: (err) => {alert(err.error?.details);console.log(err);
 },
 complete: () => {
-  if(localStorage.getItem('role')=='user'){this.router.navigate(['user'])}
-  else if(localStorage.getItem('role')=='admin'){this.router.navigate(['admin'])}
-  else{this.router.navigate(['hr'])}
+  if(localStorage.getItem('role')=='ROLE_USER'){this.router.navigate(['user'])}
+  else if(localStorage.getItem('role')=='ROLE_ADMIN'){this.router.navigate(['admin'])}
+  else if(localStorage.getItem('role')=='ROLE_HR'){this.router.navigate(['hr'])}
+  else{this.router.navigate(['login'])}
 }
 });
  } 

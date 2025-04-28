@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,8 @@ export class AddUsersComponent implements OnInit{
   user:User=new User()
   userlist:any
   baseUrl='http://localhost:8080/'
+  token: any = localStorage.getItem('token');
+  header = new HttpHeaders().set("authorization", "Bearer " + this.token);
   constructor(private http:HttpClient){}
   ngOnInit(): void {
 this.getAll()

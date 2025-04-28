@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Qcm } from './Qcm';
@@ -14,6 +14,8 @@ import { Options } from './Option';
   styleUrl: './add-qcm.component.css'
 })
 export class AddQcmComponent implements OnInit{
+  token: any = localStorage.getItem('token');
+  header = new HttpHeaders().set("authorization", "Bearer " + this.token);
   qcms:any
   options:Options[]=[]
   option1:Options=new Options
@@ -35,7 +37,7 @@ addQuestion(){
   
 }
 addQcm() {
-  return this.http.post("http://localhost:8080/qcm",this.qcm,{responseType:'text'}).subscribe({
+  return this.http.post("http://localhost:8080/qcm",this.qcm,{responseType:'text',headers:this.header}).subscribe({
     next:(res)=>{alert("QCM saved successfully");
     },
     error:(err)=>{console.log(err);alert("error");
