@@ -86,14 +86,7 @@
 .course-card:hover .course-badge {
     display: inline-block; /* Show on hover */
   }
-.course-image {
-    height: 160px;
-    background-color: #f3f4f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
+
 
 .course-image i {
     font-size: 48px;
@@ -165,9 +158,7 @@
     margin-right: 4px;
 }
 
-.course-progress-container {
-    margin-bottom: 12px;
-}
+
 
 .course-progress-label {
     display: flex;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals - QCM Exam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="exam-container">
+        <!-- Fixed header with countdown -->
+        <header class="exam-header">
+            <div class="exam-info">
+                <h1>{{qcm.title}}</h1>
+                <p>Complete all questions before the time expires</p>
+            </div>
+            <div class="timer-container">
+                <div class="timer-info">
+                    <span class="time-remaining">{{ displayTime }}</span>
+                    <span class="time-label">Time Remaining</span>
+                </div>
+               
+            </div>
+        </header>
+
+        <!-- Progress indicator -->
+        <div class="progress-indicator">
+            <div *ngIf="quizResult">
+                <h2>Your Score: {{ quizResult.score }}%</h2>
+                <p *ngIf="quizResult.passed" style="color: green;">🎉 You passed!</p>
+                <p *ngIf="!quizResult.passed" style="color: red;">❌ You did not pass.</p>
+              </div>
+        </div>
+
+        <!-- Main exam content -->
+        <main class="exam-content">
+            <!-- Question 1 -->
+            <div class="question-container" *ngFor="let q of qcm.questions">
+                <div class="question-number">Question 1</div>
+                <div class="question-text">
+                    <p>{{q.content}}</p>
+                </div>
+
+                <div class="answer-options">
+                    <label class="answer-option" *ngFor="let opt of q.options">
+                        <input
+                          type="checkbox"
+                          [checked]="userAnswers[q.id]?.includes(opt.id)"
+                          (change)="onOptionChange(q.id, opt.id, $event)"
+                        />
+                        <span class="radio-custom"></span>
+                        <span class="option-text">{{ opt.value }}</span>
+                      </label>
+                    
+                  
+                </div>
+            </div>
+
+           
+        </main>
+
+        <!-- Footer with submit button -->
+        <footer class="exam-footer">
+            <div class="exam-progress">
+                <span class="answered-count"></span>  <span class="total-questions"></span> 
+            </div>
+            <button class="submit-btn"  (click)="submitExam()">
+                Submit Exam
+            </button>
+        </footer>
+    </div>
+
+    <!-- Confirmation modal -->
+   
+</body>
+</html>

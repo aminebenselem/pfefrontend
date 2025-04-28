@@ -1,5 +1,7 @@
 
 .sidebar {
+    overflow-x: hidden;
+
     width: 250px;
     background-color: #1e40af;
     color: white;

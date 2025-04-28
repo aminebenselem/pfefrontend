@@ -1,90 +1,29 @@
 <div class="card">
     <h2>Your Progress</h2>
     <div class="progress-overview">
-        <div class="progress-item">
-            <h3>Courses Completed</h3>
-            <div class="progress-value">
-                <span class="value">4</span>
-                <span class="total">/ 10</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 40%;"></div>
-            </div>
-        </div>
+        
         
         <div class="progress-item">
             <h3>QCMs Completed</h3>
             <div class="progress-value">
-                <span class="value">12</span>
-                <span class="total">/ 20</span>
+                <span class="value">{{result.completedQcms}}</span>
+               
             </div>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 60%;"></div>
-            </div>
+           
         </div>
         
         <div class="progress-item">
             <h3>Average Score</h3>
             <div class="progress-value">
-                <span class="value">85%</span>
+                <span class="value">{{result.averageScore}}%</span>
             </div>
             <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%;"></div>
+                <div class="progress-fill" [style.width.%]="result.averageScore"></div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Recent Courses -->
-<div class="card">
-    <div class="card-header">
-        <h2>Recent Courses</h2>
-        <a href="user-courses.html" class="view-all">View all</a>
-    </div>
-    <div class="courses-grid">
-        <div class="course-card">
-            <div class="course-image">
-                <i class="fas fa-code"></i>
-            </div>
-            <div class="course-content">
-                <h3>JavaScript Basics</h3>
-                <p>Learn the fundamentals of JavaScript programming</p>
-                <div class="course-footer">
-                    <span class="course-progress">Progress: 75%</span>
-                    <a href="user-courses.html" class="course-link">Continue</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="course-card">
-            <div class="course-image">
-                <i class="fas fa-html5"></i>
-            </div>
-            <div class="course-content">
-                <h3>HTML Fundamentals</h3>
-                <p>Master HTML5 and web structure basics</p>
-                <div class="course-footer">
-                    <span class="course-progress">Progress: 100%</span>
-                    <a href="user-courses.html" class="course-link">Review</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="course-card">
-            <div class="course-image">
-                <i class="fas fa-css3-alt"></i>
-            </div>
-            <div class="course-content">
-                <h3>CSS Styling</h3>
-                <p>Learn to style web pages with CSS</p>
-                <div class="course-footer">
-                    <span class="course-progress">Progress: 50%</span>
-                    <a href="user-courses.html" class="course-link">Continue</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Recent Results -->
 <div class="card">
@@ -100,37 +39,17 @@
                     <th>Date</th>
                     <th>Score</th>
                     <th>Status</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>JavaScript Basics Quiz</td>
-                    <td>Mar 15, 2023</td>
-                    <td>85%</td>
-                    <td><span class="status passed">Passed</span></td>
-                    <td class="actions">
-                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
-                    </td>
+                <tr *ngFor="let q of result.lastThreeQcms">
+                    <td>{{q.qcmHist.title}}</td>
+                    <td>{{ q.attemptDate | date:'MMMM d, y' }}</td>
+                    <td>{{q.score}}%</td>
+                    <td><span *ngIf="q.passed" class="status passed">Passed</span><span *ngIf="!q.passed" class="status not-started">Failed</span></td>
+                   
                 </tr>
-                <tr>
-                    <td>HTML Fundamentals Quiz</td>
-                    <td>Mar 10, 2023</td>
-                    <td>92%</td>
-                    <td><span class="status passed">Passed</span></td>
-                    <td class="actions">
-                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>CSS Styling Quiz</td>
-                    <td>Mar 5, 2023</td>
-                    <td>78%</td>
-                    <td><span class="status passed">Passed</span></td>
-                    <td class="actions">
-                        <button class="btn-icon view-btn"><i class="fas fa-eye"></i></button>
-                    </td>
-                </tr>
+               
             </tbody>
         </table>
     </div>

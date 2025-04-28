@@ -1,277 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Dashboard - Learning Platform</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Dashboard - QCM Assessment Results</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
 </head>
 <body>
+
+
+  <!-- Main content -->
+  <main class="container">
    
 
-            <!-- Overview Cards -->
-            <div class="overview-cards">
-                <div class="card overview-card">
-                    <div class="overview-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="overview-details">
-                        <h3>Total Users</h3>
-                        <p class="overview-value">156</p>
-                        <p class="overview-change positive">+12 this month</p>
-                    </div>
-                </div>
-                
-                <div class="card overview-card">
-                    <div class="overview-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="overview-details">
-                        <h3>Active Courses</h3>
-                        <p class="overview-value">24</p>
-                        <p class="overview-change positive">+3 this month</p>
-                    </div>
-                </div>
-                
-                <div class="card overview-card">
-                    <div class="overview-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="overview-details">
-                        <h3>Completion Rate</h3>
-                        <p class="overview-value">78%</p>
-                        <p class="overview-change positive">+5% this month</p>
-                    </div>
-                </div>
-                
-                <div class="card overview-card">
-                    <div class="overview-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="overview-details">
-                        <h3>Certifications</h3>
-                        <p class="overview-value">89</p>
-                        <p class="overview-change positive">+15 this month</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Department Progress -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>Department Progress</h2>
-                    <div class="card-actions">
-                        <select id="time-period">
-                            <option value="month">This Month</option>
-                            <option value="quarter">This Quarter</option>
-                            <option value="year">This Year</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="department-progress">
-                    <div class="department-item">
-                        <div class="department-info">
-                            <h3>Engineering</h3>
-                            <p>42 users</p>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-stats">
-                                <span>Course Completion</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="department-item">
-                        <div class="department-info">
-                            <h3>Marketing</h3>
-                            <p>28 users</p>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-stats">
-                                <span>Course Completion</span>
-                                <span>72%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 72%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="department-item">
-                        <div class="department-info">
-                            <h3>Sales</h3>
-                            <p>35 users</p>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-stats">
-                                <span>Course Completion</span>
-                                <span>68%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 68%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="department-item">
-                        <div class="department-info">
-                            <h3>Finance</h3>
-                            <p>21 users</p>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-stats">
-                                <span>Course Completion</span>
-                                <span>91%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 91%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="department-item">
-                        <div class="department-info">
-                            <h3>Human Resources</h3>
-                            <p>15 users</p>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-stats">
-                                <span>Course Completion</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Activities -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>Recent Activities</h2>
-                    <a href="hr-reports.html" class="view-all">View All</a>
-                </div>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Department</th>
-                                <th>Activity</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>Engineering</td>
-                                <td>Completed JavaScript Basics</td>
-                                <td>Mar 15, 2023</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>Jane Smith</td>
-                                <td>Marketing</td>
-                                <td>Started Digital Marketing</td>
-                                <td>Mar 14, 2023</td>
-                                <td><span class="status in-progress">In Progress</span></td>
-                            </tr>
-                            <tr>
-                                <td>Robert Johnson</td>
-                                <td>Sales</td>
-                                <td>Completed Sales Techniques</td>
-                                <td>Mar 12, 2023</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>Emily Davis</td>
-                                <td>Finance</td>
-                                <td>Passed Financial Analysis QCM</td>
-                                <td>Mar 10, 2023</td>
-                                <td><span class="status passed">Passed</span></td>
-                            </tr>
-                            <tr>
-                                <td>Michael Wilson</td>
-                                <td>Engineering</td>
-                                <td>Started Database Management</td>
-                                <td>Mar 9, 2023</td>
-                                <td><span class="status in-progress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Upcoming Deadlines -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>Upcoming Deadlines</h2>
-                </div>
-                <div class="deadlines-container">
-                    <div class="deadline-item">
-                        <div class="deadline-date">
-                            <span class="day">25</span>
-                            <span class="month">Mar</span>
-                        </div>
-                        <div class="deadline-details">
-                            <h3>Cybersecurity Training</h3>
-                            <p>Required for all departments</p>
-                            <div class="deadline-meta">
-                                <span><i class="fas fa-users"></i> 156 users assigned</span>
-                                <span><i class="fas fa-chart-pie"></i> 45% completed</span>
-                            </div>
-                        </div>
-                        <div class="deadline-actions">
-                            <button class="btn btn-sm">Send Reminder</button>
-                        </div>
-                    </div>
-                    
-                    <div class="deadline-item">
-                        <div class="deadline-date">
-                            <span class="day">31</span>
-                            <span class="month">Mar</span>
-                        </div>
-                        <div class="deadline-details">
-                            <h3>GDPR Compliance</h3>
-                            <p>Required for Marketing, Sales, HR</p>
-                            <div class="deadline-meta">
-                                <span><i class="fas fa-users"></i> 78 users assigned</span>
-                                <span><i class="fas fa-chart-pie"></i> 62% completed</span>
-                            </div>
-                        </div>
-                        <div class="deadline-actions">
-                            <button class="btn btn-sm">Send Reminder</button>
-                        </div>
-                    </div>
-                    
-                    <div class="deadline-item">
-                        <div class="deadline-date">
-                            <span class="day">10</span>
-                            <span class="month">Apr</span>
-                        </div>
-                        <div class="deadline-details">
-                            <h3>Project Management Fundamentals</h3>
-                            <p>Required for Engineering, Product</p>
-                            <div class="deadline-meta">
-                                <span><i class="fas fa-users"></i> 52 users assigned</span>
-                                <span><i class="fas fa-chart-pie"></i> 28% completed</span>
-                            </div>
-                        </div>
-                        <div class="deadline-actions">
-                            <button class="btn btn-sm">Send Reminder</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Stats cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title">Average Score</div>
+        <div class="stat-value">{{stats.averageScore | number:'1.1-1'}}%</div>
+        <div class="stat-change positive">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+          <span>{{ stats.averageScoreChange | number:'1.1-1' }}% from last month</span>
+        </div>
+      </div>
       
+      <div class="stat-card">
+        <div class="stat-title">Assessments Taken</div>
+        <div class="stat-value">{{stats.assessmentsTaken}}</div>
+        <div class="stat-change positive">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+          <span>{{stats.assessmentsTakenChange}} more than last month</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Pass Rate</div>
+        <div class="stat-value">{{stats.passRate | number:'1.1-1'}}%</div>
+        <div class="stat-change negative">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>{{stats.passRateChange | number:'1.1-1'}}% from last month</span>
+        </div>
+      </div>
+    </div>
+
+   
+    <!-- Results table -->
+    <div class="results-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Utilisateur</th>
+            <th>Assessment</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Completion Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr *ngFor="let hist of histories" >
+            <td>
+              <div class="user-cell">
+                <div class="user-avatar">RJ</div>
+                <div class="user-info">
+                  <div class="user-name">{{hist.user.username}}</div>
+                  <div class="user-email">{{hist.user.email}}</div>
+                </div>
+              </div>
+            </td>
+            <td>{{hist.qcmHist.title}}</td>
+            <td><span class="score score-medium">{{hist.score }}%</span></td>
+            <td><span *ngIf="hist.passed==true" class="status-badge status-completed">Passed</span>
+                <span *ngIf="hist.passed==false" class="status-badge status-not-started">Failed</span></td>
+            <td> {{ hist.attemptDate | date:'MMMM d, y' }}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <div class="page-info">
+        Showing 1 to 8 of 143 results
+      </div>
+      <div class="page-numbers">
+        <button class="page-btn disabled">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

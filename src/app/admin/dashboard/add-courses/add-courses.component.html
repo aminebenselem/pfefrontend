@@ -18,34 +18,30 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="course-title">Course Title</label>
-                            <input type="text" id="course-title" name="course-title" required>
+                            <input [(ngModel)]="course.title" type="text" id="course-title" name="course-title" required>
                         </div>
                         <div class="form-group">
                             <label for="category">Category</label>
-                            <select id="category" name="category" required>
-                                <option value="">Select Category</option>
-                                <option value="web">Web Development</option>
-                                <option value="database">Database</option>
-                                <option value="security">Security</option>
-                                <option value="mobile">Mobile Development</option>
-                                <option value="other">Other</option>
+                            <select [(ngModel)]="course.category" id="category" name="category" required>
+                                <option  *ngFor="let cat of categories" [id]="cat.id" [ngValue]="cat" value="">{{cat.name}}</option>
+                              
                             </select>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" rows="3" required></textarea>
+                        <textarea [(ngModel)]="course.description" id="description" name="description" rows="3" required></textarea>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="duration">Duration (weeks)</label>
-                            <input type="number" id="duration" name="duration" min="1" max="52" value="8">
+                            <input [(ngModel)]="course.duration" type="number" id="duration" name="duration" min="1" max="52" value="8">
                         </div>
                         <div class="form-group">
                             <label for="difficulty">Difficulty Level</label>
-                            <select id="difficulty" name="difficulty" required>
+                            <select [(ngModel)]="course.difficulty" id="difficulty" name="difficulty" required>
                                 <option value="beginner">Beginner</option>
                                 <option value="intermediate">Intermediate</option>
                                 <option value="advanced">Advanced</option>
@@ -55,11 +51,11 @@
                     
                     <div class="form-group">
                         <label for="course-image">Course File</label>
-                        <input type="file" id="course-image" name="course-image" >
+                        <input type="file" (change)="selectFile($event);"  class="form-control" multiple  >
                     </div>
                     
                     <div class="form-buttons">
-                        <button type="submit" class="btn btn-primary">Add Course</button>
+                        <button (click)="uploadFile()" type="submit" class="btn btn-primary">Add Course</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
                 </form>
@@ -81,50 +77,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Web Development</td>
-                                <td>Web</td>
-                                <td>8 weeks</td>
-                                <td>Intermediate</td>
+                            <tr *ngFor="let c of courses">
+                                <td>{{c.id}}</td>
+                                <td>{{c.title}}</td>
+                                <td>{{c.category.name}}</td>
+                                <td>{{c.duration}} weeks</td>
+                                <td>{{c.difficulty}}</td>
                                 <td class="actions">
                                     <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                    <button [id]="c.id" (click)="deleteById($event)" class="btn-icon delete-btn"><i [id]="c.id" class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Database Management</td>
-                                <td>Database</td>
-                                <td>6 weeks</td>
-                                <td>Intermediate</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Network Security</td>
-                                <td>Security</td>
-                                <td>10 weeks</td>
-                                <td>Advanced</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Mobile App Development</td>
-                                <td>Mobile</td>
-                                <td>12 weeks</td>
-                                <td>Intermediate</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
+                         
                         </tbody>
                     </table>
                 </div>

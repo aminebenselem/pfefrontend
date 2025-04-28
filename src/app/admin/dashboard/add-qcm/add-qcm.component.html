@@ -18,68 +18,88 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="qcm-title">QCM Title</label>
-                            <input type="text" id="qcm-title" name="qcm-title" required>
+                            <input [(ngModel)]="qcm.title" type="text" id="qcm-title" name="qcm-title" required>
+                        </div> <div class="form-group">
+                            <label for="qcm-title">QCM description</label>
+                            <input [(ngModel)]="qcm.description" type="text" id="qcm-title" name="qcm-title" required>
                         </div>
-                        <div class="form-group">
-                            <label for="course">Course</label>
-                            <select id="course" name="course" required>
-                                <option value="">Select Course</option>
-                                <option value="1">Web Development</option>
-                                <option value="2">Database Management</option>
-                                <option value="3">Network Security</option>
-                                <option value="4">Mobile App Development</option>
-                            </select>
-                        </div>
+                       
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="time-limit">Time Limit (minutes)</label>
-                            <input type="number" id="time-limit" name="time-limit" min="5" max="180" value="30">
+                            <input [(ngModel)]="qcm.duration" type="number" id="time-limit" name="time-limit" min="5" max="180" value="30">
                         </div>
                         <div class="form-group">
                             <label for="passing-score">Passing Score (%)</label>
-                            <input type="number" id="passing-score" name="passing-score" min="0" max="100" value="70">
+                            <input [(ngModel)]="qcm.passingScore" type="number" id="passing-score" name="passing-score" min="0" max="100" value="70">
                         </div>
                     </div>
                     
                     <h3>Questions</h3>
-                    <div id="questions-container">
-                        <div class="question-card">
+                    <div id="questions-container" >
+                        <div class="question-card" *ngFor="let q of qcm.questions" >
                             <div class="question-header">
                                 <h4>Question 1</h4>
                                 <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
                             </div>
                             <div class="form-group">
                                 <label for="question-1">Question Text</label>
-                                <textarea id="question-1" name="questions[0][text]" rows="2" required></textarea>
+                                <textarea [value]="q.content" id="question-1" name="questions[0][text]" rows="2" readonly></textarea>
                             </div>
                             <div class="options-container">
                                 <div class="option-row">
-                                    <input type="radio" name="questions[0][correct]" value="0" id="q1-option1-correct" checked>
-                                    <input type="text" name="questions[0][options][]" placeholder="Option 1" required>
+                                    <input [checked]="q.options[0].isCorrect" type="checkbox" name="questions[0][correct]" value="0" id="q1-option1-correct" checked>
+                                    <input [value]="q.options[0].value" type="text" name="questions[0][options][]" placeholder="Option 1" readonly>
                                 </div>
                                 <div class="option-row">
-                                    <input type="radio" name="questions[0][correct]" value="1" id="q1-option2-correct">
-                                    <input type="text" name="questions[0][options][]" placeholder="Option 2" required>
+                                    <input [checked]="q.options[1].isCorrect" type="checkbox" name="questions[0][correct]" value="1" id="q1-option2-correct">
+                                    <input [value]="q.options[1].value" type="text" name="questions[0][options][]" placeholder="Option 2" readonly>
                                 </div>
                                 <div class="option-row">
-                                    <input type="radio" name="questions[0][correct]" value="2" id="q1-option3-correct">
-                                    <input type="text" name="questions[0][options][]" placeholder="Option 3" required>
+                                    <input [checked]="q.options[2].isCorrect" type="checkbox" name="questions[0][correct]" value="2" id="q1-option3-correct">
+                                    <input [value]="q.options[2].value" type="text" name="questions[0][options][]" placeholder="Option 3" readonly>
                                 </div>
                                 <div class="option-row">
-                                    <input type="radio" name="questions[0][correct]" value="3" id="q1-option4-correct">
-                                    <input type="text" name="questions[0][options][]" placeholder="Option 4" required>
+                                    <input [checked]="q.options[3].isCorrect" type="checkbox" name="questions[0][correct]" value="3" id="q1-option4-correct">
+                                    <input [value]="q.options[3].value" type="text" name="questions[0][options][]" placeholder="Option 4" readonly>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="question-header">
+                            <h4>Question </h4>
+                            <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="form-group">
+                            <label for="question-${questionCount}">Question Text</label>
+                            <textarea [(ngModel)]="question.content" id="question-${questionCount}" name="questions[${questionCount-1}][text]" rows="2" required></textarea>
+                        </div>
+                        <div class="options-container">
+                            <div class="option-row">
+                                <input [(ngModel)]="option1.isCorrect" type="checkbox" name="questions[${questionCount-1}][correct]" value="0" id="q${questionCount}-option1-correct" checked>
+                                <input [(ngModel)]="option1.value" type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 1" required>
+                            </div>
+                            <div class="option-row">
+                                <input  [(ngModel)]="option2.isCorrect" type="checkbox" name="questions[${questionCount-1}][correct]" value="1" id="q${questionCount}-option2-correct">
+                                <input [(ngModel)]="option2.value" type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 2" required>
+                            </div>
+                            <div class="option-row">
+                                <input  [(ngModel)]="option3.isCorrect" type="checkbox" name="questions[${questionCount-1}][correct]" value="2" id="q${questionCount}-option3-correct">
+                                <input [(ngModel)]="option3.value" type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 3" required>
+                            </div>
+                            <div class="option-row">
+                                <input  [(ngModel)]="option4.isCorrect" type="checkbox" name="questions[${questionCount-1}][correct]" value="3" id="q${questionCount}-option4-correct">
+                                <input [(ngModel)]="option4.value" type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 4" required>
                             </div>
                         </div>
                     </div>
                     
                     <div class="form-buttons">
-                        <button type="button" id="add-question" class="btn btn-secondary">
+                        <button (click)="addQuestion()" type="button" id="add-question" class="btn btn-secondary">
                             <i class="fas fa-plus"></i> Add Question
                         </button>
-                        <button type="submit" class="btn btn-primary">Save QCM</button>
+                        <button (click)="addQcm()" type="submit" class="btn btn-primary">Save QCM</button>
                     </div>
                 </form>
             </div>
@@ -93,55 +113,21 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
-                                <th>Course</th>
-                                <th>Questions</th>
+                                <th>Passing Score</th>
                                 <th>Time Limit</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>JavaScript Basics</td>
-                                <td>Web Development</td>
-                                <td>10</td>
-                                <td>20 min</td>
+                            
+                            <tr *ngFor="let qcm of qcms">
+                                <td>{{qcm.id}}</td>
+                                <td>{{qcm.title}}</td>
+                                <td>{{qcm.passingScore}}%</td>
+                                <td>{{qcm.duration}} min</td>
                                 <td class="actions">
                                     <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>HTML Fundamentals</td>
-                                <td>Web Development</td>
-                                <td>15</td>
-                                <td>30 min</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Database Design</td>
-                                <td>Database Management</td>
-                                <td>12</td>
-                                <td>25 min</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Network Security</td>
-                                <td>Network Security</td>
-                                <td>20</td>
-                                <td>40 min</td>
-                                <td class="actions">
-                                    <button class="btn-icon edit-btn"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
+                                    <button (click)="deleteById($event)" [id]="qcm.id" class="btn-icon delete-btn"><i [id]="qcm.id" class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
                         </tbody>
