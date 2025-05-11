@@ -33,6 +33,12 @@ addQuestion(){
   this.options.push(this.option1,this.option2,this.option3,this.option4)
   this.question.options=this.options
   this.qcm.questions.push(this.question)
+  this.question= new Question()
+    this.options=[]
+ this. option1=new Options
+  this.option2=new Options
+ this. option3=new Options
+  this.option4=new Options
   console.log(this.qcm);
   
 }

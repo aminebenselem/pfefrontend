@@ -38,10 +38,10 @@
                     </div>
                     
                     <h3>Questions</h3>
-                    <div id="questions-container" >
+                    <div id="l" >
                         <div class="question-card" *ngFor="let q of qcm.questions" >
                             <div class="question-header">
-                                <h4>Question 1</h4>
+                                <h4>Question {{qcm.questions.indexOf(q)}}</h4>
                                 <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
                             </div>
                             <div class="form-group">
@@ -135,64 +135,3 @@
                 </div>
             </div>
         
-
-            <script>
-                // Simple JavaScript to add more questions
-                document.addEventListener('DOMContentLoaded', function() {
-                    const addQuestionBtn = document.getElementById('add-question');
-                    const questionsContainer = document.getElementById('questions-container');
-                    let questionCount = 1;
-                    
-                    addQuestionBtn.addEventListener('click', function() {
-                        questionCount++;
-                        const newQuestion = document.createElement('div');
-                        newQuestion.className = 'question-card';
-                        newQuestion.innerHTML = `
-                            <div class="question-header">
-                                <h4>Question ${questionCount}</h4>
-                                <button type="button" class="btn-icon delete-btn"><i class="fas fa-trash"></i></button>
-                            </div>
-                            <div class="form-group">
-                                <label for="question-${questionCount}">Question Text</label>
-                                <textarea id="question-${questionCount}" name="questions[${questionCount-1}][text]" rows="2" required></textarea>
-                            </div>
-                            <div class="options-container">
-                                <div class="option-row">
-                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="0" id="q${questionCount}-option1-correct" checked>
-                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 1" required>
-                                </div>
-                                <div class="option-row">
-                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="1" id="q${questionCount}-option2-correct">
-                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 2" required>
-                                </div>
-                                <div class="option-row">
-                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="2" id="q${questionCount}-option3-correct">
-                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 3" required>
-                                </div>
-                                <div class="option-row">
-                                    <input type="radio" name="questions[${questionCount-1}][correct]" value="3" id="q${questionCount}-option4-correct">
-                                    <input type="text" name="questions[${questionCount-1}][options][]" placeholder="Option 4" required>
-                                </div>
-                            </div>
-                        `;
-                        questionsContainer.appendChild(newQuestion);
-                        
-                        // Add event listener to delete button
-                        const deleteBtn = newQuestion.querySelector('.delete-btn');
-                        deleteBtn.addEventListener('click', function() {
-                            newQuestion.remove();
-                        });
-                    });
-                    
-                    // Add event listener to existing delete button
-                    const deleteBtn = document.querySelector('.delete-btn');
-                    deleteBtn.addEventListener('click', function(e) {
-                        if (questionCount > 1) {
-                            e.target.closest('.question-card').remove();
-                            questionCount--;
-                        }
-                    });
-                });
-            </script>
-</body>
-</html>

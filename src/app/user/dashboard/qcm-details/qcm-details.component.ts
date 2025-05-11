@@ -54,6 +54,7 @@ export class QcmDetailsComponent implements OnInit, OnDestroy {
     if (this.routerSub) {
       this.routerSub.unsubscribe(); // Clean up router event listener
     }
+    localStorage.setItem(JSON.stringify(this.userAnswers),'useranswers')
   }
 
   getById() {

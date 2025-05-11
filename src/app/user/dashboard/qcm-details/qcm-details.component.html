@@ -37,7 +37,7 @@
         <main class="exam-content">
             <!-- Question 1 -->
             <div class="question-container" *ngFor="let q of qcm.questions">
-                <div class="question-number">Question 1</div>
+                <div class="question-number">Question {{qcm.questions.indexOf(q)+1}}</div>
                 <div class="question-text">
                     <p>{{q.content}}</p>
                 </div>
